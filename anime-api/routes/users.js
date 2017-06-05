@@ -29,7 +29,7 @@ usersRouter.route('/:id')
     })
   })
   .patch((req, res) => {
-    User.findById(res.params.id, (err, user) => {
+    User.findById(req.params.id, (err, user) => {
       if(err) return console.log(err)
       Object.assign(user, req.body)
       user.save((err) => {
