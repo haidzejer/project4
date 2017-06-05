@@ -1,10 +1,13 @@
 const
   express = require('express'),
-  usersRouter = new express.Router()
+  usersRouter = new express.Router(),
+  User = require('../models/User.js'),
+  serverAuth = require('../config/serverAuth.js')
 
 
 usersRouter.post('/api/users', (req, res) => {
   User.create(req.body, (err, user) => {
+    if(err) console.log(err)
     const userData.toObject()
     delete userData.password
 
