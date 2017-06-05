@@ -1,11 +1,14 @@
 const
   express = require('express'),
-  usersRouter = new express.Router()
+  usersRouter = new express.Router(),
+  User = require('../models/User.js'),
+  serverAuth = require('../config/serverAuth.js')
 
 
-usersRouter.post('/api/users', (req, res) => {
+usersRouter.post('/', (req, res) => {
   User.create(req.body, (err, user) => {
-    const userData.toObject()
+    if(err) console.log(err)
+    const userData = user.toObject()
     delete userData.password
 
     const token = serverAuth.createToken(userData)
@@ -13,7 +16,7 @@ usersRouter.post('/api/users', (req, res) => {
   })
 })
 
-usersRouter.route('/api/users/:id')
+usersRouter.route('/:id')
   .get((req, res) => {
     User.findById(req.params.id, (err, user) => {
       res.json(user)
