@@ -5,10 +5,10 @@ const
   serverAuth = require('../config/serverAuth.js')
 
 
-usersRouter.post('/api/users', (req, res) => {
+usersRouter.post('/', (req, res) => {
   User.create(req.body, (err, user) => {
     if(err) console.log(err)
-    const userData.toObject()
+    const userData = user.toObject()
     delete userData.password
 
     const token = serverAuth.createToken(userData)
@@ -16,7 +16,7 @@ usersRouter.post('/api/users', (req, res) => {
   })
 })
 
-usersRouter.route('/api/users/:id')
+usersRouter.route('/:id')
   .get((req, res) => {
     User.findById(req.params.id, (err, user) => {
       res.json(user)
