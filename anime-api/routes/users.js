@@ -4,6 +4,24 @@ const
   User = require('../models/User.js'),
   serverAuth = require('../config/serverAuth.js')
 
+usersRouter.post('/login', (req, res) => {
+  User.findOne({email: req.body.email}, '+password', (err, user) => {
+
+    if(!user || !user.validPassword(req.body.password)) {
+      return res.status(403).json({success: false, message: "Your a failure"})
+    }
+
+    if(user && user.validPassword(req.body.password)) {
+      const userData = user.toObject()
+      delete userData.password
+
+      const token = serverAuth.createToken(userData)
+      res.json({token: token})
+    }
+
+  })
+})
+
 usersRouter.route('/')
   .get((req, res) => {
     User.find({}, (err, users) => {
@@ -29,7 +47,7 @@ usersRouter.route('/:id')
     })
   })
   .patch((req, res) => {
-    User.findById(res.params.id, (err, user) => {
+    User.findById(req.params.id, (err, user) => {
       if(err) return console.log(err)
       Object.assign(user, req.body)
       user.save((err) => {
