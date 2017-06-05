@@ -37,7 +37,7 @@ class App extends Component {
       this.setState({
         currentUser: user,
         loggedIn: true,
-        view: 'todos'
+        view: 'home'
       })
     })
   }
@@ -79,9 +79,17 @@ class App extends Component {
             <li><button onClick={this._logOut.bind(this)}>Log Out</button></li>
           )}
         </ul>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Map google={this.props.google} zoom={14}>
+
+          <Marker onClick={this.onMarkerClick}
+          name={'Current location'} />
+
+          <InfoWindow onClose={this.onInfoWindowClose}>
+            <div>
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div>
+          </InfoWindow>
+        </Map>
         {{
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
