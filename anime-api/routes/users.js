@@ -4,17 +4,23 @@ const
   User = require('../models/User.js'),
   serverAuth = require('../config/serverAuth.js')
 
-
-usersRouter.post('/', (req, res) => {
-  User.create(req.body, (err, user) => {
-    if(err) console.log(err)
-    const userData = user.toObject()
-    delete userData.password
-
-    const token = serverAuth.createToken(userData)
-    res.json({success: true, message: "User account created.", user, token})
+usersRouter.route('/')
+  .get((req, res) => {
+    User.find({}, (err, users) => {
+      res.json(users)
+    })
   })
-})
+  .post((req, res) => {
+    User.create(req.body, (err, user) => {
+      console.log(User);
+      if(err) console.log(err)
+      const userData = user.toObject()
+      delete userData.password
+
+      const token =   serverAuth.createToken(userData)
+      res.json({success: true, message: "User account created.", user, token})
+    })
+  })
 
 usersRouter.route('/:id')
   .get((req, res) => {
