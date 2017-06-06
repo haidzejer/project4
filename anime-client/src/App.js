@@ -3,6 +3,7 @@ import './App.css';
 import clientAuth from './clientAuth';
 import Login from './Login';
 import SignUp from './SignUp';
+import Otaku from './Otaku';
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
@@ -84,8 +85,8 @@ class App extends Component {
         {{
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
-          signup: <SignUp onSignup={this._signUp.bind(this)} />
-          // otaku: <Otaku />
+          signup: <SignUp onSignup={this._signUp.bind(this)} />,
+          otaku: <Otaku />
         }[this.state.view]}
 
         <div id="map">

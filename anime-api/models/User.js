@@ -5,8 +5,7 @@ const
     name: String,
     email: String,
     password: {type: String, select: false},
-    lat: String,
-    long: String
+    address: String
   })
 
 userSchema.methods.generateHash = function(password) {
