@@ -79,17 +79,6 @@ class App extends Component {
             <li><button onClick={this._logOut.bind(this)}>Log Out</button></li>
           )}
         </ul>
-        <Map google={this.props.google} zoom={14}>
-
-          <Marker onClick={this.onMarkerClick}
-          name={'Current location'} />
-
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div>
-          </InfoWindow>
-        </Map>
         {{
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
