@@ -3,14 +3,23 @@
 }
 
 .App-header {
+<<<<<<< HEAD
   background-color: #095;
   height: 150px;
+=======
+  background-color: #222;
+  height: 50px;
+>>>>>>> 7d6c7a567cb3debc4cca88ce5d5efe3103891be2
   padding: 20px;
   color: white;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.mapboxgl-control-container {
+  display: none;
 }
 
 @keyframes App-logo-spin {

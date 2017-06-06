@@ -94,8 +94,8 @@ class App extends Component {
             style="mapbox://styles/mapbox/streets-v8"
             accessToken="pk.eyJ1IjoiamVyZW1pYWhoIiwiYSI6ImNqM2t2d3duYTAwc3MycXJ6ZTk3N2ttemEifQ.GRIn6Jx-V76v9R9vPtT-HQ"
             containerStyle={{
-              height: "100vh",
-              width: "100vw"
+              height: "70vh",
+              width: "65vw"
             }}
             center={[-118.482, 34.026]}
             >
