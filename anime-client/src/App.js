@@ -3,6 +3,8 @@ import './App.css';
 import clientAuth from './clientAuth';
 import Login from './Login';
 import SignUp from './SignUp';
+import mapboxgl from 'mapbox-gl';
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
 class App extends Component {
 
@@ -37,7 +39,7 @@ class App extends Component {
       this.setState({
         currentUser: user,
         loggedIn: true,
-        view: 'todos'
+        view: 'home'
       })
     })
   }
@@ -79,15 +81,34 @@ class App extends Component {
             <li><button onClick={this._logOut.bind(this)}>Log Out</button></li>
           )}
         </ul>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         {{
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
           signup: <SignUp onSignup={this._signUp.bind(this)} />
           // otaku: <Otaku />
         }[this.state.view]}
+
+        <div id="map">
+
+          <ReactMapboxGl
+            style="mapbox://styles/mapbox/streets-v8"
+            accessToken="pk.eyJ1IjoiamVyZW1pYWhoIiwiYSI6ImNqM2t2d3duYTAwc3MycXJ6ZTk3N2ttemEifQ.GRIn6Jx-V76v9R9vPtT-HQ"
+            containerStyle={{
+              height: "100vh",
+              width: "100vw"
+            }}
+            center={[-118.482, 34.026]}
+            >
+              <Layer
+                type="symbol"
+                id="marker"
+                layout={{ "icon-image": "marker-15" }}>
+                <Feature coordinates={[-118.482, 34.026]}/>
+              </Layer>
+          </ReactMapboxGl>
+
+        </div>
+
       </div>
     );
   }
