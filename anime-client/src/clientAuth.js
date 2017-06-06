@@ -42,6 +42,10 @@ const clientAuth = {
     return token ? jwt_decode(token) : null
   },
 
+  editUser: (id) => {
+
+  },
+
   logOut: () => {
     return new Promise((resolve) => {
       localStorage.clear()
