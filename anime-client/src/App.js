@@ -5,6 +5,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import EditUser from './EditUser'
 
 class App extends Component {
 
@@ -80,11 +81,15 @@ class App extends Component {
           {this.state.loggedIn && (
             <li><button onClick={this._logOut.bind(this)}>Log Out</button></li>
           )}
+          {this.state.loggedIn && (
+            <li><button name='edit' onClick={this._setView.bind(this)}>Edit</button></li>
+          )}
         </ul>
         {{
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
-          signup: <SignUp onSignup={this._signUp.bind(this)} />
+          signup: <SignUp onSignup={this._signUp.bind(this)} />,
+          edit: <EditUser />
           // otaku: <Otaku />
         }[this.state.view]}
 
