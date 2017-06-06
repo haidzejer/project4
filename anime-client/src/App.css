@@ -5,12 +5,17 @@
 .App-header {
   background-color: #095;
   height: 150px;
+
   padding: 20px;
   color: white;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.mapboxgl-control-container {
+  display: none;
 }
 
 @keyframes App-logo-spin {
