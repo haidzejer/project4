@@ -43,7 +43,10 @@ const clientAuth = {
   },
 
   editUser: (id) => {
-
+    return axios({
+      url: `/api/users/${id}`,
+      method: 'patch'
+    })
   },
 
   logOut: () => {
@@ -53,7 +56,6 @@ const clientAuth = {
       resolve("bye.")
     })
   }
-
 
 }
 

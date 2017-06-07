@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       currentUser: null,
       loggedIn: false,
-      userEditting: {name: '', email: ''},
       view: 'home'
     }
   }
@@ -25,10 +24,6 @@ class App extends Component {
       currentUser: currentUser,
       loggedIn: !!currentUser
     })
-  }
-
-  _handleInputChange(evt){
-    console.log(evt.target)
   }
 
   _signUp(newUser) {
@@ -63,14 +58,6 @@ class App extends Component {
     })
   }
 
-  _editUser(id){
-    // console.log(id)
-    this.setState({
-      currentUser: id,
-      view: 'edit'
-    })
-  }
-
   _setView(evt) {
     evt.preventDefault()
     const view = evt.target.name
@@ -80,7 +67,6 @@ class App extends Component {
   }
 
   render() {
-    const currentUser = clientAuth.getCurrentUser()
     return (
       <div className="App">
         <div className="App-header">
@@ -98,7 +84,7 @@ class App extends Component {
             <li><button onClick={this._logOut.bind(this)}>Log Out</button></li>
           )}
           {this.state.loggedIn && (
-            <li><button name='edit' onClick={this._editUser.bind(this, currentUser)}>Edit</button></li>
+            <li><button name='edit' onClick={this._setView.bind(this)}>Edit</button></li>
           )}
         </ul>
         {{
