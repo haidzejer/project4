@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import clientAuth from './clientAuth';
 import Login from './Login';
+import Otaku from './Otaku';
 import SignUp from './SignUp';
 import Map from './Map';
 import mapboxgl from 'mapbox-gl';
@@ -44,7 +45,7 @@ class App extends Component {
       this.setState({
         currentUser: user,
         loggedIn: true,
-        view: 'home'
+        view: 'otaku'
       })
     })
   }
@@ -93,12 +94,9 @@ class App extends Component {
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
           signup: <SignUp onSignup={this._signUp.bind(this)} />,
-          edit: <EditUser />
-          // otaku: <Otaku />
+          edit: <EditUser />,
+          otaku: <Otaku />
         }[this.state.view]}
-
-
-          <Map />
 
 
       </div>
