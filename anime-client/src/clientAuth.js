@@ -42,6 +42,13 @@ const clientAuth = {
     return token ? jwt_decode(token) : null
   },
 
+  editUser: (id) => {
+    return axios({
+      url: `/api/users/${id}`,
+      method: 'patch'
+    })
+  },
+
   logOut: () => {
     return new Promise((resolve) => {
       localStorage.clear()
@@ -49,6 +56,7 @@ const clientAuth = {
       resolve("bye.")
     })
   }
+
 
   // getCurrentLocation: () => {
   //    return axios({
