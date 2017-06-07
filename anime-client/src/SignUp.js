@@ -6,7 +6,8 @@ class SignUp extends Component {
     const newUser = {
       name: this.refs.name.value,
       email: this.refs.email.value,
-      password: this.refs.password.value
+      password: this.refs.password.value,
+      address: this.refs.address.value
     }
     this.props.onSignup(newUser)
   }
@@ -18,6 +19,7 @@ class SignUp extends Component {
         <form onSubmit={this._handleSignup.bind(this)}>
           <input type='text' placeholder='Name' ref='name' />
           <input type='text' placeholder='Email' ref='email' />
+          <input type='text' placeholder='Address' ref='address' />
           <input type='password' placeholder='Password' ref='password' />
           <button type='submit'>Create Account</button>
         </form>

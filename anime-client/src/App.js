@@ -3,9 +3,11 @@ import './App.css';
 import clientAuth from './clientAuth';
 import Login from './Login';
 import SignUp from './SignUp';
+import Map from './Map';
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import EditUser from './EditUser'
+// import geolocation from 'node-geolocation';
 
 class App extends Component {
 
@@ -95,26 +97,9 @@ class App extends Component {
           // otaku: <Otaku />
         }[this.state.view]}
 
-        <div id="map">
 
-          <ReactMapboxGl
-            style="mapbox://styles/mapbox/streets-v8"
-            accessToken="pk.eyJ1IjoiamVyZW1pYWhoIiwiYSI6ImNqM2t2d3duYTAwc3MycXJ6ZTk3N2ttemEifQ.GRIn6Jx-V76v9R9vPtT-HQ"
-            containerStyle={{
-              height: "70vh",
-              width: "65vw"
-            }}
-            center={[-118.482, 34.026]}
-            >
-              <Layer
-                type="symbol"
-                id="marker"
-                layout={{ "icon-image": "marker-15" }}>
-                <Feature coordinates={[-118.482, 34.026]}/>
-              </Layer>
-          </ReactMapboxGl>
+          <Map />
 
-        </div>
 
       </div>
     );

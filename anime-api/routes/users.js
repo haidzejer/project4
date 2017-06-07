@@ -2,7 +2,9 @@ const
   express = require('express'),
   usersRouter = new express.Router(),
   User = require('../models/User.js'),
-  serverAuth = require('../config/serverAuth.js')
+  serverAuth = require('../config/serverAuth.js'),
+  geocoder = require('geocoder')
+
 
 usersRouter.post('/login', (req, res) => {
   User.findOne({email: req.body.email}, '+password', (err, user) => {
@@ -29,15 +31,39 @@ usersRouter.route('/')
     })
   })
   .post((req, res) => {
-    User.create(req.body, (err, user) => {
-      console.log(User);
-      if(err) console.log(err)
-      const userData = user.toObject()
-      delete userData.password
 
-      const token =   serverAuth.createToken(userData)
-      res.json({success: true, message: "User account created.", user, token})
+    var lat = geocoder.geocode(req.body.address, function(err, data) {
+      // console.log(data.results[0].geometry.location.lat);
+
+      req.body = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        lat: data.results[0].geometry.location.lat,
+        lng: data.results[0].geometry.location.lng
+      }
+
+      User.create(req.body, (err, user) => {
+        if(err) console.log(err)
+        const userData = user.toObject()
+        delete userData.password
+
+        const token = serverAuth.createToken(userData)
+        res.json({success: true, message: "User account created.", user, token})
+      })
     })
+
+    //
+    //
+    // console.log(req.body);
+    // User.create(req.body, (err, user) => {
+    //   if(err) console.log(err)
+    //   const userData = user.toObject()
+    //   delete userData.password
+    //
+    //   const token =   serverAuth.createToken(userData)
+    //   res.json({success: true, message: "User account created.", user, token})
+    // })
   })
 
 usersRouter.route('/:id')

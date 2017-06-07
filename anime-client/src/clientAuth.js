@@ -57,6 +57,18 @@ const clientAuth = {
     })
   }
 
+
+  // getCurrentLocation: () => {
+  //    return axios({
+  //      url: '/',
+  //      method: "GET"
+  //    })
+  //    .then(res => {
+  //
+  //    })
+  // }
+
+
 }
 
 
