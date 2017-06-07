@@ -53,7 +53,7 @@ const clientAuth = {
 
   getUsers: () => {
     return axios({
-      url: '/',
+      url: '/api/users',
       method: 'GET'
     })
     // .then( res => {
