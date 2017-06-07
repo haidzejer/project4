@@ -95,7 +95,7 @@ class App extends Component {
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
           signup: <SignUp onSignup={this._signUp.bind(this)} />,
-          edit: <EditUser />,
+          edit: <EditUser onClick={this._setView.bind(this)}/>,
           otaku: <Otaku />
         }[this.state.view]}
 

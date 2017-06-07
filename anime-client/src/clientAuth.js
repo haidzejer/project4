@@ -52,11 +52,10 @@ const clientAuth = {
   },
 
   editUser: (editedUser) => {
-    console.log(editedUser)
-    console.log(editedUser._id)
     return axios({
       url: `/api/users/${editedUser._id}`,
-      method: 'patch'
+      method: 'patch',
+      data: editedUser
     })
   },
 

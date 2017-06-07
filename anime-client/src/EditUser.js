@@ -27,9 +27,11 @@ class EditUser extends Component {
       name: this.refs.name.value,
       email: this.refs.email.value
     }
-    clientAuth.editUser(editUser)
-    this.setState({
-      currentUser: editUser
+    clientAuth.editUser(editUser).then(res => {
+      console.log(res.data.user)
+      this.setState({
+        currentUser: res.data.user
+      })
     })
   }
 
