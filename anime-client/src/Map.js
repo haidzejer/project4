@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { GeoJSONLayer, ScaleControl, ZoomControl, Layer, Feature, Marker } from "react-mapbox-gl";
 import clientAuth from './clientAuth';
-import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-axios.defaults.baseURL = 'http://localhost:3001/api/users'
 const currentUser = clientAuth.getCurrentUser()
 const accessToken = "pk.eyJ1IjoiamVyZW1pYWhoIiwiYSI6ImNqM2t2d3duYTAwc3MycXJ6ZTk3N2ttemEifQ.GRIn6Jx-V76v9R9vPtT-HQ";
 const style = "mapbox://styles/mapbox/dark-v9";
