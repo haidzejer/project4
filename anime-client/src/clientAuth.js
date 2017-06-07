@@ -18,6 +18,15 @@ const clientAuth = {
       method: 'post',
       data: userInfo
     })
+    .then(res => {
+      if(res.data.token) {
+        localStorage.setItem('token', res.data.token)
+        clientAuth.setTokenHeader()
+        return jwt_decode(res.data.token)
+      } else {
+        return false
+      }
+    })
   },
 
   logIn: (credentials) => {
@@ -42,9 +51,11 @@ const clientAuth = {
     return token ? jwt_decode(token) : null
   },
 
-  editUser: (id) => {
+  editUser: (editedUser) => {
+    console.log(editedUser)
+    console.log(editedUser._id)
     return axios({
-      url: `/api/users/${id}`,
+      url: `/api/users/${editedUser._id}`,
       method: 'patch'
     })
   },
