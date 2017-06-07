@@ -77,7 +77,10 @@ usersRouter.route('/:id')
       if(err) return console.log(err)
       Object.assign(user, req.body)
       user.save((err) => {
-        res.json({success: true, message: "User updated...", user: user})
+        const userData = user.toObject()
+        delete userData.password
+        const token = serverAuth.createToken(userData)
+        res.json({success: true, message: "User updated...", user: user, token: token})
       })
     })
   })

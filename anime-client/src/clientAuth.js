@@ -18,6 +18,15 @@ const clientAuth = {
       method: 'post',
       data: userInfo
     })
+    .then(res => {
+      if(res.data.token) {
+        localStorage.setItem('token', res.data.token)
+        clientAuth.setTokenHeader()
+        return jwt_decode(res.data.token)
+      } else {
+        return false
+      }
+    })
   },
 
   logIn: (credentials) => {
@@ -42,10 +51,22 @@ const clientAuth = {
     return token ? jwt_decode(token) : null
   },
 
-  editUser: (id) => {
+  editUser: (editedUser) => {
     return axios({
-      url: `/api/users/${id}`,
-      method: 'patch'
+      url: `/api/users/${editedUser._id}`,
+      method: 'patch',
+      data: editedUser
+    })
+    .then(res => {
+      localStorage.clear()
+      delete axios.defaults.headers.common['x-access-token']
+      if(res.data.token) {
+        localStorage.setItem('token', res.data.token)
+        clientAuth.setTokenHeader()
+        return jwt_decode(res.data.token)
+      } else {
+        return false
+      }
     })
   },
 

@@ -7,8 +7,8 @@ const accessToken = "pk.eyJ1IjoiamVyZW1pYWhoIiwiYSI6ImNqM2t2d3duYTAwc3MycXJ6ZTk3
 const style = "mapbox://styles/mapbox/dark-v9";
 
 const containerStyle = {
-  height: "100vh",
-  width: "100%"
+  height: "70vh",
+  width: "50%"
 };
 
 export default class Map extends Component {

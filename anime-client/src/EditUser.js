@@ -5,8 +5,9 @@ class EditUser extends Component {
 
   constructor(){
     super()
+    const currentUser = clientAuth.getCurrentUser()
     this.state = {
-      currentUser: {name: '', email: ''}
+      currentUser: currentUser
     }
   }
 
@@ -26,25 +27,25 @@ class EditUser extends Component {
       name: this.refs.name.value,
       email: this.refs.email.value
     }
-    clientAuth.editUser(editUser)
-    this.setState({
-      currentUser: {name: '', email: ''}
+    clientAuth.editUser(editUser).then(res => {
+      this.setState({
+        currentUser: editUser
+      })
     })
   }
 
   render() {
-    console.log(this.state);
-    const currentUser = clientAuth.getCurrentUser()
+    // console.log(this.state);
     return (
       <div className="container">
         <h2>HELLO THERE, Time to change yourself</h2>
         <form onSubmit={this._editUser.bind(this)}>
           <label>Name
           <input name="name" type='text' placeholder="Name" ref='name'
-            onChange={this._handleInputChange.bind(this)} value={this.state.edittingUser.name} />
+            onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.name} />
           </label>
           <label>Email
-          <input name="email" type='text' placeholder="Email" ref="email" onChange={this._handleInputChange.bind(this)} value={currentUser.email} />
+          <input name="email" type='text' placeholder="Email" ref="email" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.email} />
         </label>
           <button type='submit'>Edit yourself</button>
         </form>
