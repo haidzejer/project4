@@ -70,6 +70,17 @@ const clientAuth = {
     })
   },
 
+  deleteUser: (id) => {
+    return axios({
+      url: `/api/users/${id}`,
+      method: 'delete'
+    })
+    .then(res => {
+      localStorage.clear()
+      delete axios.defaults.headers.common['x-access-token']
+    })
+  },
+
   logOut: () => {
     return new Promise((resolve) => {
       localStorage.clear()
@@ -77,19 +88,6 @@ const clientAuth = {
       resolve("bye.")
     })
   }
-
-
-  // getCurrentLocation: () => {
-  //    return axios({
-  //      url: '/',
-  //      method: "GET"
-  //    })
-  //    .then(res => {
-  //
-  //    })
-  // }
-
-
 }
 
 

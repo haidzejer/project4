@@ -12,7 +12,6 @@ class EditUser extends Component {
   }
 
   _handleInputChange(evt){
-    console.log(evt.target)
     var edittingUser = this.state.currentUser
     edittingUser[evt.target.name] = evt.target.value
 
@@ -22,7 +21,7 @@ class EditUser extends Component {
   _editUser(evt){
     evt.preventDefault()
     const id = clientAuth.getCurrentUser()._id
-    const editUser = {
+    var editUser = {
       _id: id,
       name: this.refs.name.value,
       email: this.refs.email.value
@@ -31,11 +30,11 @@ class EditUser extends Component {
       this.setState({
         currentUser: editUser
       })
+      this.props.onClick()
     })
   }
 
   render() {
-    // console.log(this.state);
     return (
       <div className="container">
         <h2>HELLO THERE, Time to change yourself</h2>
