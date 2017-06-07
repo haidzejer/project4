@@ -25,8 +25,7 @@ class App extends Component {
     const currentUser = clientAuth.getCurrentUser()
     this.setState({
       currentUser: currentUser,
-      loggedIn: !!currentUser,
-      view: currentUser ? 'otaku' : 'home'
+      loggedIn: !!currentUser
     })
   }
 
