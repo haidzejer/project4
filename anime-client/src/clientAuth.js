@@ -51,6 +51,16 @@ const clientAuth = {
     return token ? jwt_decode(token) : null
   },
 
+  getUsers: () => {
+    return axios({
+      url: '/',
+      method: 'GET'
+    })
+    // .then( res => {
+    //   return res.data
+    // })
+  },
+
   editUser: (editedUser) => {
     return axios({
       url: `/api/users/${editedUser._id}`,

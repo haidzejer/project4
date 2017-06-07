@@ -7,7 +7,8 @@ import SignUp from './SignUp';
 import Map from './Map';
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-import EditUser from './EditUser'
+import EditUser from './EditUser';
+import bootstrap from 'bootstrap';
 // import geolocation from 'node-geolocation';
 
 class App extends Component {

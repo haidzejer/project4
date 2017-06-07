@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { GeoJSONLayer, ScaleControl, ZoomControl, Layer, Feature, Marker } from "react-mapbox-gl";
 import clientAuth from './clientAuth';
-
+import axios from 'axios'
+import jwt_decode from 'jwt-decode'
+axios.defaults.baseURL = 'http://localhost:3001/api/users'
 const currentUser = clientAuth.getCurrentUser()
 const accessToken = "pk.eyJ1IjoiamVyZW1pYWhoIiwiYSI6ImNqM2t2d3duYTAwc3MycXJ6ZTk3N2ttemEifQ.GRIn6Jx-V76v9R9vPtT-HQ";
 const style = "mapbox://styles/mapbox/dark-v9";
@@ -14,15 +16,39 @@ const containerStyle = {
 export default class Map extends Component {
   state = {
     popup: null,
-    center: [currentUser.lng, currentUser.lat]
+    center: [currentUser.lng, currentUser.lat],
+    nearbyOtakus: []
   };
+
+  componentDidMount() {
+    clientAuth.getUsers().then(res => (
+      this.setState({
+        nearbyOtakus: res.data
+      })
+    ))
+  }
 
   _onClickMarker() {
     console.log("marker clicked!")
   }
 
   render() {
+    const otakus = this.state.nearbyOtakus.map((otaku, i) => {
+      return (
+        <Layer
+          key={i}
+          type="symbol"
+          layout={{ "icon-image": "marker-15" }}>
+          <Feature
+            coordinates={[otaku.lng, otaku.lat]}
+            onHover={this._onHover}
+            onEndHover={this._onEndHover}
+            onClick={this._onClickMarker}/>
+        </Layer>
+      )
+    })
     return (
+      <div>
       <ReactMapboxGl
         // eslint-disable-next-line
         style={style}
@@ -45,6 +71,8 @@ export default class Map extends Component {
             onClick={this._onClickMarker}/>
         </Layer>
 
+        {otakus}
+
         {/* <Layer
           type="symbol"
           id="marker"
@@ -64,6 +92,7 @@ export default class Map extends Component {
 
 
       </ReactMapboxGl>
+    </div>
     );
   }
 }
