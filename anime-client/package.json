@@ -7,6 +7,7 @@
     "google-maps-react": "^1.0.19",
     "jwt-decode": "^2.2.0",
     "mapbox-gl": "^0.37.0",
+    "node-geolocation": "^1.15.14",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-mapbox-gl": "^1.12.0"
