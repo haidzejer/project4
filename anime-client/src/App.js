@@ -35,7 +35,7 @@ class App extends Component {
     clientAuth.signUp(newUser).then((data) => {
       console.log(data)
       this.setState({
-        view: 'home',
+        view: 'otaku',
         loggedIn: true,
         currentUser: newUser
       })
@@ -63,11 +63,31 @@ class App extends Component {
     })
   }
 
+  _edit(){
+    const currentUser = clientAuth.getCurrentUser()
+    this.setState({
+      currentUser: currentUser,
+      view: 'otaku'
+    })
+  }
+
   _setView(evt) {
     evt.preventDefault()
     const view = evt.target.name
     this.setState({
       view: view
+    })
+  }
+
+  _deleteUser(evt) {
+    evt.preventDefault()
+    const id = clientAuth.getCurrentUser()._id
+    clientAuth.deleteUser(id).then(res => {
+      this.setState({
+        currentUser: null,
+        loggedIn: false,
+        view: 'home'
+      })
     })
   }
 
@@ -96,7 +116,11 @@ class App extends Component {
           home: <h1>The Home View</h1>,
           login: <Login onLogin={this._logIn.bind(this)} />,
           signup: <SignUp onSignup={this._signUp.bind(this)} />,
-          edit: <EditUser onClick={this._setView.bind(this)}/>,
+          edit:
+          <div>
+            <EditUser onClick={this._edit.bind(this)}/>
+            <button onClick={this._deleteUser.bind(this)}>Delete your bitch ass</button>
+          </div>,
           otaku: <Otaku />
         }[this.state.view]}
 
