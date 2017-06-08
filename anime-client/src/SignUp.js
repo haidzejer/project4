@@ -23,7 +23,6 @@ class SignUp extends Component {
           <input type='text' placeholder='Name' ref='name' /><br/>
           <input type='text' placeholder='Email' ref='email' /><br/>
           <input type='text' placeholder='Address' ref='address' /><br/>
-          <input type='password' placeholder='Password' ref='password' /><br/>
           <input type='text' placeholder='Profile picture url...' ref='profilePicture' /><br/>
           <input type='text' placeholder='Short personal description...' ref='bio' /><br/>
           <input type='password' placeholder='Password' ref='password' /><br/>

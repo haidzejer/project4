@@ -55,3 +55,29 @@ button {
 .editUser {
   margin: 2px 48%;
 }
+
+#selectedOtaku {
+  height: 300px;
+}
+
+#user-container {
+  border: 1px solid black;
+  margin: 5% 25%;
+}
+
+.picture {
+  width: 25%;
+  height: 25%;
+  margin: 2% 10%;
+}
+
+.name {
+  text-align: center;
+  margin: -13% 50%;
+}
+
+.bio {
+  text-align: center;
+  width: 90%;
+  margin: 20% 5%;
+}
