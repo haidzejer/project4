@@ -17,10 +17,10 @@ class SignUp extends Component {
       <div className='container'>
         <h2>Sign Up</h2>
         <form onSubmit={this._handleSignup.bind(this)}>
-          <input type='text' placeholder='Name' ref='name' />
-          <input type='text' placeholder='Email' ref='email' />
-          <input type='text' placeholder='Address' ref='address' />
-          <input type='password' placeholder='Password' ref='password' />
+          <input type='text' placeholder='Name' ref='name' /><br/>
+          <input type='text' placeholder='Email' ref='email' /><br/>
+          <input type='text' placeholder='Address' ref='address' /><br/>
+          <input type='password' placeholder='Password' ref='password' /><br/>
           <button type='submit'>Create Account</button>
         </form>
       </div>

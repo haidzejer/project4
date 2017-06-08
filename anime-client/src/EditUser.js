@@ -39,14 +39,14 @@ class EditUser extends Component {
       <div className="container">
         <h2>HELLO THERE, Time to change yourself</h2>
         <form onSubmit={this._editUser.bind(this)}>
-          <label>Name
+          <label><span>Name: </span>
           <input name="name" type='text' placeholder="Name" ref='name'
-            onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.name} />
+            onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.name} /><br/>
           </label>
-          <label>Email
-          <input name="email" type='text' placeholder="Email" ref="email" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.email} />
+          <label><span>Email: </span>
+          <input name="email" type='text' placeholder="Email" ref="email" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.email} /><br/>
         </label>
-          <button type='submit'>Edit yourself</button>
+          <button className="editUser" type='submit'>Edit yourself</button>
         </form>
       </div>
     )
