@@ -86,7 +86,7 @@ export default class Map extends Component {
 
       <div id="selectedOtaku">
         <div id="user-container">
-          <img className='picture' src={selectedOtaku.profilePicture}/>
+          <img className='picture' src={selectedOtaku.profilePicture || 'https://s-media-cache-ak0.pinimg.com/736x/ae/c4/28/aec42862a67cb9ec42773774197cb8fd.jpg'}/>
           <h1 className='name'>{selectedOtaku.name}</h1>
           <p className='bio'>{selectedOtaku.bio}</p>
         </div>
