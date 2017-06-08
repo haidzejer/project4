@@ -6,6 +6,8 @@ class SignUp extends Component {
     const newUser = {
       name: this.refs.name.value,
       email: this.refs.email.value,
+      bio: this.refs.bio.value,
+      profilePicture: this.refs.profilePicture.value,
       password: this.refs.password.value,
       address: this.refs.address.value
     }
@@ -20,6 +22,8 @@ class SignUp extends Component {
           <input type='text' placeholder='Name' ref='name' />
           <input type='text' placeholder='Email' ref='email' />
           <input type='text' placeholder='Address' ref='address' />
+          <input type='text' placeholder='Profile picture url...' ref='profilePicture' />
+          <input type='text' placeholder='Short personal description...' ref='bio' />
           <input type='password' placeholder='Password' ref='password' />
           <button type='submit'>Create Account</button>
         </form>

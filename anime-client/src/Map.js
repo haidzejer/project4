@@ -32,7 +32,6 @@ export default class Map extends Component {
   }
 
   _onClickMarker(evt) {
-    console.log(this);
     clientAuth.getOtaku(evt.feature.layer.id)
     .then ( res => {
       this.setState({
@@ -42,6 +41,8 @@ export default class Map extends Component {
   }
 
   render() {
+    const selectedOtaku = this.state.selectedOtaku
+    console.log(selectedOtaku);
     const otakus = this.state.nearbyOtakus.map((otaku, i) => {
         if(otaku._id != currentUser._id) {
           return (
@@ -57,7 +58,6 @@ export default class Map extends Component {
             )
         }
     })
-    console.log(otakus);
     return (
       <div>
       <ReactMapboxGl
@@ -84,8 +84,10 @@ export default class Map extends Component {
         {otakus}
       </ReactMapboxGl>
 
-      <div>
-
+      <div id="selectedOtaku">
+        <img src={selectedOtaku.profilePicture}/>
+        <h1>{selectedOtaku.name}</h1>
+        <p>{selectedOtaku.bio}</p>
       </div>
 
     </div>
