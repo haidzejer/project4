@@ -51,14 +51,18 @@ const clientAuth = {
     return token ? jwt_decode(token) : null
   },
 
+  getOtaku: (id) => {
+    return axios({
+      url: `/api/users/${id}`,
+      method: 'GET'
+    })
+  },
+
   getUsers: () => {
     return axios({
       url: '/api/users',
       method: 'GET'
     })
-    // .then( res => {
-    //   return res.data
-    // })
   },
 
   editUser: (editedUser) => {
