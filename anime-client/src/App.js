@@ -150,7 +150,7 @@ class App extends Component {
           otaku: <Otaku />
         }[this.state.view]}
 
-        <FooterPartial />
+        {/* <FooterPartial /> */}
 
 
       </div>

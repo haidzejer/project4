@@ -9,7 +9,7 @@ const style = "mapbox://styles/mapbox/dark-v9";
 
 const containerStyle = {
   height: "70vh",
-  width: "50%"
+  width: "90%"
 };
 
 export default class Map extends Component {
@@ -19,7 +19,7 @@ export default class Map extends Component {
       popup: null,
       center: [currentUser.lng, currentUser.lat],
       nearbyOtakus: [],
-      selectedOtaku: {}
+      selectedOtaku: null
     }
   }
 
@@ -84,13 +84,15 @@ export default class Map extends Component {
         {otakus}
       </ReactMapboxGl>
 
-        <div id="selectedOtaku">
-          <div id="user-container">
-            <img className='picture' src={selectedOtaku.profilePicture || 'https://s-media-cache-ak0.pinimg.com/736x/ae/c4/28/aec42862a67cb9ec42773774197cb8fd.jpg'}/>
-            <h1 className='name'>{selectedOtaku.name}</h1>
-            <p className='bio'>{selectedOtaku.bio}</p>
-          </div>
+      {!!selectedOtaku && (<div id="selectedOtaku">
+        <div id="user-container">
+          <img className='picture' src={selectedOtaku.profilePicture || 'https://s-media-cache-ak0.pinimg.com/736x/ae/c4/28/aec42862a67cb9ec42773774197cb8fd.jpg'}/>
+          <h1 className='name'>{selectedOtaku.name}</h1>
+          <p className='bio'>{selectedOtaku.bio}</p>
         </div>
+      </div>)}
+
+
 
     </div>
     );
