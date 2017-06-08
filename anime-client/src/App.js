@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './logo.svg'
 import clientAuth from './clientAuth';
 import Login from './Login';
 import Otaku from './Otaku';
@@ -96,6 +97,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>{this.state.loggedIn ? this.state.currentUser.name : 'Not Logged In'}</h2>
+          <img className='App-logo' src='https://s-media-cache-ak0.pinimg.com/originals/56/ce/8b/56ce8b385ade288bc50bb7a1b50e09d0.png' />
         </div>
         <ul>
           {!this.state.loggedIn && (
@@ -119,7 +121,7 @@ class App extends Component {
           edit:
           <div>
             <EditUser onClick={this._edit.bind(this)}/>
-            <button onClick={this._deleteUser.bind(this)}>Delete your bitch ass</button>
+            <button className="editUser" onClick={this._deleteUser.bind(this)}>Delete your bitch ass</button>
           </div>,
           otaku: <Otaku />
         }[this.state.view]}

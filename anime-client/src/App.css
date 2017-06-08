@@ -3,15 +3,16 @@
 }
 
 .App-header {
-  background-color: #064;
-  height: 50px;
+  background-color: #000;
+  height: 200px;
   padding: 20px;
   color: white;
   text-align: center;
 }
 
-.App-intro {
-  font-size: large;
+.App-logo {
+  animation: App-logo-spin infinite .01s linear;
+  height: 130px;
 }
 
 .mapboxgl-control-container {
@@ -23,15 +24,34 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
 
 h1, h2, form {
   text-align: center;
 }
 
+input {
+  margin: 5px auto;
+}
+
 ul {
   list-style: none;
   text-align: center;
+}
+html {
+  background: red;
+}
+
+button {
+  width: 100px;
+  background: black;
+  border: black;
+  color: red;
+  margin: 2px 45%;
+}
+
+.editUser {
+  margin: 2px 48%;
 }
