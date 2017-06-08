@@ -133,8 +133,10 @@ class App extends Component {
           </div>
         </nav>
         <div className="App-header">
-          <h2>{this.state.loggedIn ? this.state.currentUser.name : 'Otaku Finder'}</h2>
-          <img className='App-logo' src='https://s-media-cache-ak0.pinimg.com/originals/56/ce/8b/56ce8b385ade288bc50bb7a1b50e09d0.png' />
+          <div className="headerContent">
+            <h1>Otaku Finder</h1>
+            <h2>Find your Anime friends!</h2>
+          </div>
         </div>
         {{
           home: <HomePartial />,

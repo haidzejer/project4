@@ -8,7 +8,6 @@ export default class FooterPartial extends Component {
       <div className="footer">
         <p>Jordan and Jeremiah Inc.</p>
       </div>
-
     )
   }
 }

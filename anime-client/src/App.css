@@ -7,16 +7,22 @@
 }
 
 .App-header {
-  background-color: #000;
+  background-image: url("./headerImage.jpg");
+  background-size: contain;
   height: 200px;
-  padding: 20px;
+  padding: 0px;
   color: white;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite .01s linear;
-  height: 130px;
+.headerContent {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  padding-left: 60px;
 }
 
 .mapboxgl-control-container {
@@ -25,11 +31,6 @@
 
 .mapboxgl-map {
   margin: auto 25%;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
 }
 
 h1, h2, form {
@@ -111,9 +112,11 @@ a {
 
 .link-container {
   margin: 5% auto;
+}
 
 .homeView {
   text-align: center;
+  margin-left: 10%;
 }
 
 .homeImg {
@@ -154,4 +157,12 @@ a {
 .footer {
   background-color: black;
   color: white;
+  position: relative;
+  bottom: 0;
+}
+
+.signUpButton {
+  color: rgb(48,48,45);
+  background-color: #F1F1F1;
+  border-radius: 3px;
 }
