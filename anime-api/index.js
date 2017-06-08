@@ -6,7 +6,13 @@ const
   logger = require('morgan'),
   usersRoutes = require('./routes/users.js'),
   mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/anime',
-  cors = require('cors')
+  cors = require('cors'),
+  server = require('http').Server(app),
+  io = require('socket.io')(server)
+
+  io.on('connection', (socket) => {
+    console.log("client connection!");
+  })
 
   const port = 3001
 

@@ -9,7 +9,7 @@ const style = "mapbox://styles/mapbox/dark-v9";
 
 const containerStyle = {
   height: "70vh",
-  width: "90%"
+  width: "75%"
 };
 
 export default class Map extends Component {
