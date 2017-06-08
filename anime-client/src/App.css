@@ -81,3 +81,29 @@ button {
   width: 90%;
   margin: 20% 5%;
 }
+#sidebar {
+  text-align: center;
+  background: pink;
+  width: 60px;
+  min-height: 100%;
+  position: fixed;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+  height: 100px;
+}
+
+.navagation {
+  margin: 350% auto;
+}
+
+.icon {
+  width: 35px;
+  height: 30px;
+}
+
+.link-container {
+  margin: 5% auto;
+}
