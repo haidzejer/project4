@@ -6,6 +6,8 @@ import Login from './Login';
 import Otaku from './Otaku';
 import SignUp from './SignUp';
 import Map from './Map';
+import HomePartial from './HomePartial';
+import FooterPartial from './FooterPartial';
 import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import EditUser from './EditUser';
@@ -131,11 +133,11 @@ class App extends Component {
           </div>
         </nav>
         <div className="App-header">
-          <h2>{this.state.loggedIn ? this.state.currentUser.name : 'Not Logged In'}</h2>
+          <h2>{this.state.loggedIn ? this.state.currentUser.name : 'Otaku Finder'}</h2>
           <img className='App-logo' src='https://s-media-cache-ak0.pinimg.com/originals/56/ce/8b/56ce8b385ade288bc50bb7a1b50e09d0.png' />
         </div>
         {{
-          home: <h1>The Home View</h1>,
+          home: <HomePartial />,
           login: <Login onLogin={this._logIn.bind(this)} />,
           signup: <SignUp onSignup={this._signUp.bind(this)} />,
           edit:
@@ -145,6 +147,8 @@ class App extends Component {
           </div>,
           otaku: <Otaku />
         }[this.state.view]}
+
+        <FooterPartial />
 
 
       </div>

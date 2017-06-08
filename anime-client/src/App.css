@@ -2,6 +2,10 @@
   /*text-align: center;*/
 }
 
+#root {
+  font-family: 'Open Sans';
+}
+
 .App-header {
   background-color: #000;
   height: 200px;
@@ -41,7 +45,8 @@ ul {
   text-align: center;
 }
 html {
-  background: red;
+  background: rgb(241, 241, 241);
+  color: rgb(48,48,45);
 }
 
 button {
@@ -106,4 +111,47 @@ a {
 
 .link-container {
   margin: 5% auto;
+
+.homeView {
+  text-align: center;
+}
+
+.homeImg {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.feature {
+  /*border: .5px solid grey;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px 3px;*/
+  margin: 10px 10px;
+  margin-bottom: 50px;
+}
+
+.feature h2 {
+  text-decoration: underline;
+  margin-bottom: 30px;
+}
+
+.featureHalf {
+  width: 50%;
+  display: inline-block;
+  margin: 10px 0;
+  vertical-align: middle;
+}
+
+.featureHalf img {
+  width: 50%;
+  height: 50%;
+}
+
+.featureHalf p {
+  font-size: 22px;
+  margin-top: 10%;
+}
+
+.footer {
+  background-color: black;
+  color: white;
 }
