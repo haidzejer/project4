@@ -84,11 +84,13 @@ export default class Map extends Component {
         {otakus}
       </ReactMapboxGl>
 
-      <div id="selectedOtaku">
-        <img src={selectedOtaku.profilePicture}/>
-        <h1>{selectedOtaku.name}</h1>
-        <p>{selectedOtaku.bio}</p>
-      </div>
+        <div id="selectedOtaku">
+          <div id="user-container">
+            <img className='picture' src={selectedOtaku.profilePicture || 'https://s-media-cache-ak0.pinimg.com/736x/ae/c4/28/aec42862a67cb9ec42773774197cb8fd.jpg'}/>
+            <h1 className='name'>{selectedOtaku.name}</h1>
+            <p className='bio'>{selectedOtaku.bio}</p>
+          </div>
+        </div>
 
     </div>
     );

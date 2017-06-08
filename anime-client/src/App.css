@@ -61,6 +61,57 @@ button {
   margin: 2px 48%;
 }
 
+#selectedOtaku {
+  height: 300px;
+}
+
+#user-container {
+  border: 1px solid black;
+  margin: 5% 25%;
+}
+
+.picture {
+  width: 25%;
+  height: 25%;
+  margin: 2% 10%;
+}
+
+.name {
+  text-align: center;
+  margin: -13% 50%;
+}
+
+.bio {
+  text-align: center;
+  width: 90%;
+  margin: 20% 5%;
+}
+#sidebar {
+  text-align: center;
+  background: pink;
+  width: 60px;
+  min-height: 100%;
+  position: fixed;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+  height: 100px;
+}
+
+.navagation {
+  margin: 350% auto;
+}
+
+.icon {
+  width: 35px;
+  height: 30px;
+}
+
+.link-container {
+  margin: 5% auto;
+
 .homeView {
   text-align: center;
 }

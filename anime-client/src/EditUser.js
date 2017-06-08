@@ -24,7 +24,9 @@ class EditUser extends Component {
     var editUser = {
       _id: id,
       name: this.refs.name.value,
-      email: this.refs.email.value
+      email: this.refs.email.value,
+      profilePicture: this.refs.profilePicture.value,
+      bio: this.refs.bio.value
     }
     clientAuth.editUser(editUser).then(res => {
       this.setState({
@@ -45,7 +47,13 @@ class EditUser extends Component {
           </label>
           <label><span>Email: </span>
           <input name="email" type='text' placeholder="Email" ref="email" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.email} /><br/>
-        </label>
+          </label>
+          <label><span>Picture: </span>
+          <input name="profilePicture" type='text' placeholder="Profile picture url..." ref="profilePicture" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.profilePicture} /><br/>
+          </label>
+          <label><span>Bio: </span>
+          <input name="bio" type='text' placeholder="Short personal description" ref="bio" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.bio} /><br/>
+          </label>
           <button className="editUser" type='submit'>Edit yourself</button>
         </form>
       </div>
