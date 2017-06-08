@@ -38,6 +38,8 @@ usersRouter.route('/')
       req.body = {
         name: req.body.name,
         email: req.body.email,
+        bio: req.body.bio,
+        profilePicture: req.body.profilePicture,
         password: req.body.password,
         lat: data.results[0].geometry.location.lat,
         lng: data.results[0].geometry.location.lng

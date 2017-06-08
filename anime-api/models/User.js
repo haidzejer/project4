@@ -5,6 +5,8 @@ const
     name: String,
     email: String,
     password: {type: String, select: false},
+    bio: String,
+    profilePicture: String,
     lat: String,
     lng: String
   })
