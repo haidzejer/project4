@@ -41,20 +41,20 @@ class EditUser extends Component {
       <div className="container">
         <h2>HELLO THERE, Time to change yourself</h2>
         <form onSubmit={this._editUser.bind(this)}>
-          <label><span>Name: </span>
-          <input name="name" type='text' placeholder="Name" ref='name'
+          <label className="col-1"><span>Name </span>
+          <input className="col-2" name="name" type='text' placeholder="Name" ref='name'
             onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.name} /><br/>
           </label>
-          <label><span>Email: </span>
-          <input name="email" type='text' placeholder="Email" ref="email" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.email} /><br/>
+          <label className="col-1"><span>Email </span>
+          <input className="col-2" name="email" type='text' placeholder="Email" ref="email" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.email} /><br/>
           </label>
-          <label><span>Picture: </span>
-          <input name="profilePicture" type='text' placeholder="Profile picture url..." ref="profilePicture" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.profilePicture} /><br/>
+          <label className="col-1"><span>Picture </span>
+          <input className="col-2" name="profilePicture" type='text' placeholder="Profile picture url..." ref="profilePicture" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.profilePicture} /><br/>
           </label>
-          <label><span>Bio: </span>
-          <input name="bio" type='text' placeholder="Short personal description" ref="bio" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.bio} /><br/>
+          <label className="col-1"><span>Bio </span>
+          <textarea className="col-2" name="bio" type='text' placeholder="Short personal description" ref="bio" onChange={this._handleInputChange.bind(this)} value={this.state.currentUser.bio} /><br/>
           </label>
-          <button className="editUser" type='submit'>Edit yourself</button>
+          <button className="editUser" type='submit'>Update your bitch ass</button>
         </form>
       </div>
     )

@@ -52,9 +52,9 @@ html {
 
 button {
   width: 100px;
-  background: black;
-  border: black;
-  color: red;
+  background: rgb(48,48,45);
+  color: rgb(241,241,241);
+  border-radius: 5px;
   margin: 2px 45%;
 }
 
@@ -69,6 +69,11 @@ button {
 #user-container {
   border: 1px solid black;
   margin: 5% 25%;
+}
+
+.col-1 {
+  float: left;
+  margin: 0 45.5%;
 }
 
 .picture {
