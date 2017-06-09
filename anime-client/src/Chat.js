@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Socket } from 'react-socket-io';
+// import { Socket } from 'socket.io-client/dist/socket.io';
 
-const uri = 'http://localhost';
-const options = { transports: ['websocket'] };
+// const uri = 'http://localhost:3000';
+// const options = { transports: ['websocket'] };
 
 class Chat extends Component {
 
@@ -12,12 +12,15 @@ class Chat extends Component {
       messages: []
     }
   }
+  // this.socket.on()
 
   render() {
+    const socket = this.props.socket
+    socket.emit('test', "emitting message from chat component")
     return (
-      
+      <h1>I am useless</h1>
     )
   }
 }
 
-export default Otaku
+export default Chat

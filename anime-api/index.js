@@ -10,10 +10,6 @@ const
   server = require('http').Server(app),
   io = require('socket.io')(server)
 
-  io.on('connection', (socket) => {
-    console.log("client connection!");
-  })
-
   const port = 3001
 
 
@@ -22,9 +18,7 @@ const
   })
 
   app.use(logger('dev'))
-
   app.use(cors())
-
   app.use(bodyParser.json())
 
   app.get('/', (req, res) => {
@@ -34,6 +28,13 @@ const
 
   app.use('/api/users', usersRoutes)
 
-  app.listen(port, err => {
+  io.on('connection', (socket) => {
+    console.log("client connection!");
+    socket.on('test', (message) => {
+      console.log(message)
+    })
+  })
+
+  server.listen(port, err => {
     console.log(err || "You are connected to port:", port)
   })
