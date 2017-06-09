@@ -76,6 +76,11 @@ button {
   margin: 0 45.5%;
 }
 
+.col-2 {
+  float: left;
+  margin: -40% 60%;
+}
+
 .picture {
   width: 25%;
   height: 25%;
