@@ -166,3 +166,7 @@ a {
   background-color: #F1F1F1;
   border-radius: 3px;
 }
+
+#input, #hi {
+  margin: 0 10%;
+}
