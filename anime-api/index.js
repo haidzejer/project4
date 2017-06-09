@@ -32,7 +32,7 @@ const
     console.log("client connection!");
     socket.on('chat-message', (message) => {
       console.log(message)
-      socket.emit('new-message', message)
+      io.emit('new-message', message)
     })
   })
 

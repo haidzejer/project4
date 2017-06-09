@@ -9,16 +9,7 @@ class Chat extends Component {
     }
   }
 
-  _sendMessage(evt){
-    // console.log(this.refs.message.value)
-    const socket = this.props.socket
-    var message = this.refs.message.value
-    socket.emit('chat-message', message)
-    console.log(this.state.messages)
-    this.refs.message.value = ''
-  }
-
-  render() {
+  componentDidMount() {
     const socket = this.props.socket
     socket.on("new-message", (message) => {
       console.log(message)
@@ -29,6 +20,19 @@ class Chat extends Component {
         ]
       })
     })
+  }
+
+  _sendMessage(evt){
+    // console.log(this.refs.message.value)
+    const socket = this.props.socket
+    var message = this.refs.message.value
+    socket.emit('chat-message', message)
+    console.log(this.state.messages)
+    this.refs.message.value = ''
+  }
+
+  render() {
+
     // socket.emit('test', "emitting message from chat component")
     console.log(this.state)
     return (
