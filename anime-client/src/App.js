@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './logo.svg'
 import clientAuth from './clientAuth';
 import Login from './Login';
 import Otaku from './Otaku';
 import SignUp from './SignUp';
-import Map from './Map';
 import HomePartial from './HomePartial';
-import FooterPartial from './FooterPartial';
-import mapboxgl from 'mapbox-gl';
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import EditUser from './EditUser';
-import bootstrap from 'bootstrap';
 import io from 'socket.io-client';
 
 const socket = io('http://localhost:3001')
 socket.on('connect', () => {
-  console.log('connected to socket io from client...')
+  console.log('Connected to socket io from client...')
 })
 
 // import geolocation from 'node-geolocation';
@@ -106,34 +100,34 @@ class App extends Component {
         <nav id="sidebar">
           <div className="navagation">
             <div className="link-container">
-              <a href="#"><i><img className="icon" name="home" onClick={this._setView.bind(this)} src="http://publish.uwo.ca/~rforbes8/Manga-advisor/images/homeicon.png"/><div translate><span>Home</span></div></i></a>
+              <a href="#"><i><img alt="" className="icon" name="home" onClick={this._setView.bind(this)} src="http://publish.uwo.ca/~rforbes8/Manga-advisor/images/homeicon.png"/><div translate><span>Home</span></div></i></a>
             </div><br/>
 
             {!this.state.loggedIn && (
               <div className="link-container">
-                <a href="#"><i><img className="icon" name='login' onClick={this._setView.bind(this)} src="https://cdn4.iconfinder.com/data/icons/security-soft-1/512/lock_security_business_web_data_information_system-512.png"/><div translate><span>Login</span></div></i></a>
+                <a href="#"><i><img alt="" className="icon" name='login' onClick={this._setView.bind(this)} src="https://cdn4.iconfinder.com/data/icons/security-soft-1/512/lock_security_business_web_data_information_system-512.png"/><div translate><span>Login</span></div></i></a>
               </div>
             ) ||
             this.state.loggedIn && (
               <div className="link-container">
-                <a href="#" onClick={this._logOut.bind(this)}><i><img className="icon" src="https://cdn4.iconfinder.com/data/icons/proglyphs-computers-and-development/512/Logout-512.png"/><div translate><span>Logout</span></div></i></a>
+                <a href="#" onClick={this._logOut.bind(this)}><i><img alt="" className="icon" src="https://cdn4.iconfinder.com/data/icons/proglyphs-computers-and-development/512/Logout-512.png"/><div translate><span>Logout</span></div></i></a>
               </div>
             )}<br/>
 
             {!this.state.loggedIn && (
               <div className="link-container">
-                <a href="#"><i><img className="icon" name='signup' onClick={this._setView.bind(this)} src="http://cvcs.education/wp-content/uploads/2016/06/edit-icon.png"/><div translate><span>Signup</span></div></i></a>
+                <a href="#"><i><img alt="" className="icon" name='signup' onClick={this._setView.bind(this)} src="http://cvcs.education/wp-content/uploads/2016/06/edit-icon.png"/><div translate><span>Signup</span></div></i></a>
               </div>
             ) ||
             this.state.loggedIn && (
               <div className="link-container">
-                <a href="#"><i><img className="icon" name='edit' onClick={this._setView.bind(this)} src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Programming-Edit-Property-icon.png"/><div translate><span>Edit</span></div></i></a>
+                <a href="#"><i><img alt="" className="icon" name='edit' onClick={this._setView.bind(this)} src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Programming-Edit-Property-icon.png"/><div translate><span>Edit</span></div></i></a>
               </div>
             )}<br/>
 
             { this.state.loggedIn && (
               <div className="link-container">
-              <a href="#"><i><img className="icon" name='otaku' onClick={this._setView.bind(this)} src="http://orig14.deviantart.net/092a/f/2017/119/d/2/batcho9_by_reddomi-db7ii59.png"/><div translate><span>Otaku</span></div></i></a>
+              <a href="#"><i><img alt="" className="icon" name='otaku' onClick={this._setView.bind(this)} src="http://orig14.deviantart.net/092a/f/2017/119/d/2/batcho9_by_reddomi-db7ii59.png"/><div translate><span>Otaku</span></div></i></a>
             </div>
             )}
 

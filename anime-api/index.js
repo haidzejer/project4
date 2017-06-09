@@ -31,7 +31,6 @@ const
   io.on('connection', (socket) => {
     console.log("client connection!");
     socket.on('chat-message', (message) => {
-      console.log(message)
       io.emit('new-message', message)
     })
   })

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, { GeoJSONLayer, ScaleControl, ZoomControl, Layer, Feature, Marker } from "react-mapbox-gl";
+import ReactMapboxGl, { ScaleControl, ZoomControl, Layer, Feature } from "react-mapbox-gl";
 import clientAuth from './clientAuth';
-import jwt_decode from 'jwt-decode'
-import axios from 'axios';
 const currentUser = clientAuth.getCurrentUser();
 const accessToken = "pk.eyJ1IjoiamVyZW1pYWhoIiwiYSI6ImNqM2t2d3duYTAwc3MycXJ6ZTk3N2ttemEifQ.GRIn6Jx-V76v9R9vPtT-HQ";
 const style = "mapbox://styles/mapbox/dark-v9";
 
 const containerStyle = {
   height: "70vh",
-  width: "40%"
+  width: "57%"
 };
 
 export default class Map extends Component {
@@ -42,9 +40,8 @@ export default class Map extends Component {
 
   render() {
     const selectedOtaku = this.state.selectedOtaku
-    console.log(selectedOtaku);
     const otakus = this.state.nearbyOtakus.map((otaku, i) => {
-        if(otaku._id != currentUser._id) {
+        if(otaku._id !== currentUser._id) {
           return (
             <Layer
               key={i}
@@ -57,6 +54,7 @@ export default class Map extends Component {
               </Layer>
             )
         }
+        return null
     })
     return (
       <div>
@@ -86,7 +84,7 @@ export default class Map extends Component {
 
       {!!selectedOtaku && (<div id="selectedOtaku">
         <div id="user-container">
-          <img className='picture' src={selectedOtaku.profilePicture || 'https://s-media-cache-ak0.pinimg.com/736x/ae/c4/28/aec42862a67cb9ec42773774197cb8fd.jpg'}/>
+          <img alt="" className='picture' src={selectedOtaku.profilePicture || 'https://s-media-cache-ak0.pinimg.com/736x/ae/c4/28/aec42862a67cb9ec42773774197cb8fd.jpg'}/>
           <h1 className='name'>{selectedOtaku.name}</h1>
           <p className='bio'>{selectedOtaku.bio}</p>
         </div>

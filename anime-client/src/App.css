@@ -55,7 +55,7 @@ button {
   background: rgb(48,48,45);
   color: rgb(241,241,241);
   border-radius: 5px;
-  margin: 2px 45%;
+  margin: 2px 0;
 }
 
 .editUser {
@@ -76,9 +76,10 @@ button {
   margin: 0 45.5%;
 }
 
-.col-2 {
+.chat-col {
   float: left;
-  margin: -40% 60%;
+  margin: -45% 67%;
+  width: 30%;
 }
 
 .picture {
@@ -177,21 +178,48 @@ a {
   border-radius: 3px;
 }
 
-#input, #hi {
-  margin: 0 10%;
-}
-
 .chatBox {
   border: 1px solid rgb(48,48,45);
   border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px grey;
+  background-color: white;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  height: 300px;
 }
 
 .chatBox ul {
   padding-left: 0;
 }
 
+.messages {
+  padding: 5px 0;
+  margin: 5px 20px;
+}
+
+#input {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.message {
+  border: .5px solid lightgrey;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px;
+  background-color: rgb(241,241,241);
+  margin: 10px 0;
+}
+
+.message p {
+  margin: 0 0 -5px 0;
+}
+
 #chat-container {
-  width: 50%;
   margin: 0 auto;
   text-align: center;
+}
+
+.chatPic {
+  height: 30px;
+  width: 30px;
 }

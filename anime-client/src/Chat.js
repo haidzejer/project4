@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
+import clientAuth from './clientAuth';
 
 class Chat extends Component {
 
   constructor(props, context) {
     super(props, context)
     this.state = {
-      messages: ["Welcome to the Chat"]
+      messages: [{text: "Welcome to the Chat!", user:{name: "Otaku Finder", profilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtt_oqkINgHiwIzQKrQIicYYq1Mecd6NNVTKQAAHRWhC5tC_QM"}}]
     }
   }
 
   componentDidMount() {
     const socket = this.props.socket
     socket.on("new-message", (message) => {
-      console.log(message)
       this.setState({
         messages: [
           message,
@@ -25,30 +25,28 @@ class Chat extends Component {
   _sendMessage(evt){
     // console.log(this.refs.message.value)
     const socket = this.props.socket
-    var message = this.refs.message.value
+    var message = {text: this.refs.message.value, user: clientAuth.getCurrentUser()}
     socket.emit('chat-message', message)
     this.refs.message.value = ''
   }
 
   render() {
     const messages = this.state.messages.map((m,i) => {
-      return <li>{m}</li>
+      return <li key={i} className="message"><p><img className="chatPic" src={m.user.profilePicture}/></p><span>{m.user.name}:  </span><span>{m.text}</span></li>
     })
 
     // socket.emit('test', "emitting message from chat component")
-    console.log(this.state)
     return (
       <div id="chat-container">
+        <h2>Global Chat</h2>
         <div id="project-manger-is-stupid">
-          <h1>I think it's working!!!</h1>
-          {console.log(this.state.messages)}
           <div className="chatBox">
-            <ul className="message">
+            <ul className="messages">
               {messages}
             </ul>
           </div>
         </div>
-        <input id="input" ref="message" type="text" />
+        <input id="input" ref="message" placeholder="Type a message here..." type="text" />
         <button id="send-message" onClick={this._sendMessage.bind(this)} required='true'>Send your bitch ass message</button>
       </div>
     )
