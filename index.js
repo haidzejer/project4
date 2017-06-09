@@ -11,7 +11,7 @@ const
   io = require('socket.io')(server),
   dotenv = require('dotenv').load({silent: true})
 
-  const port = 3001
+  const port = process.env.PORT || 3001
 
 
   mongoose.connect(mongoUrl, (err) => {
