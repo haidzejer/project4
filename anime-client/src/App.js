@@ -12,6 +12,13 @@ import mapboxgl from 'mapbox-gl';
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import EditUser from './EditUser';
 import bootstrap from 'bootstrap';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3001')
+socket.on('connect', () => {
+  console.log('connected to socket io from client...')
+})
+
 // import geolocation from 'node-geolocation';
 
 class App extends Component {
@@ -147,7 +154,7 @@ class App extends Component {
             <EditUser onClick={this._edit.bind(this)}/>
             <button className="editUser" onClick={this._deleteUser.bind(this)}>Delete your bitch ass</button>
           </div>,
-          otaku: <Otaku />
+          otaku: <Otaku socket={socket} />
         }[this.state.view]}
 
         {/* <FooterPartial /> */}
