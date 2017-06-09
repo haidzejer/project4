@@ -8,8 +8,10 @@ class Otaku extends Component {
   render() {
     return (
       <div>
-        <Map />
-        <Chat socket={this.props.socket} />
+          <Map />
+          <div className="col-2">
+          <Chat socket={this.props.socket} />
+        </div>
       </div>
     )
   }
