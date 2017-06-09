@@ -175,3 +175,18 @@ a {
 #input, #hi {
   margin: 0 10%;
 }
+
+.chatBox {
+  border: 1px solid rgb(48,48,45);
+  border-radius: 5px;
+}
+
+.chatBox ul {
+  padding-left: 0;
+}
+
+#chat-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
