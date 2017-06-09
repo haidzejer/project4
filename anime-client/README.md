@@ -25,6 +25,8 @@ Users are able to log in and see other otakus plotted on a map in relation to th
 
 - On initial log in, there is a bug when loading the page, so you must refresh for it to start working.
 - Span under icon of navbar doesn't work.
+- On sign up, map doesn't switch to center on your location until refresh.( change schema to contain address and then convert on map page. )
+- Fix styling on otaku view.
 
 --
 ###Dream Features
@@ -32,8 +34,3 @@ Users are able to log in and see other otakus plotted on a map in relation to th
 - The ability to start a private chat.
 - The ability to plot users on the map based on device location and update on change.
 - The ability to not be terrible at styling...
-
-
-
-
-
