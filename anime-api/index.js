@@ -30,8 +30,9 @@ const
 
   io.on('connection', (socket) => {
     console.log("client connection!");
-    socket.on('test', (message) => {
+    socket.on('chat-message', (message) => {
       console.log(message)
+      socket.emit('new-message', message)
     })
   })
 
